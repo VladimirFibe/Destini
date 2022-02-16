@@ -7,18 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F75D93427BBA2B1008B9D39 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D93327BBA2B1008B9D39 /* Story.swift */; };
+		1F75D93727BBF650008B9D39 /* StoryBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D93627BBF650008B9D39 /* StoryBrain.swift */; };
 		1FE48C3727BB508400719311 /* DestiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE48C3627BB508400719311 /* DestiniApp.swift */; };
 		1FE48C3927BB508400719311 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE48C3827BB508400719311 /* ContentView.swift */; };
 		1FE48C3B27BB508400719311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE48C3A27BB508400719311 /* Assets.xcassets */; };
 		1FE48C3E27BB508400719311 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE48C3D27BB508400719311 /* Preview Assets.xcassets */; };
+		1FE48C4527BB50CE00719311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE48C4427BB50CE00719311 /* AppDelegate.swift */; };
+		1FE48C4727BB516C00719311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE48C4627BB516C00719311 /* SceneDelegate.swift */; };
+		1FE48C4927BB51E300719311 /* DistiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE48C4827BB51E300719311 /* DistiniViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F75D93327BBA2B1008B9D39 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		1F75D93627BBF650008B9D39 /* StoryBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBrain.swift; sourceTree = "<group>"; };
 		1FE48C3327BB508400719311 /* Destini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE48C3627BB508400719311 /* DestiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestiniApp.swift; sourceTree = "<group>"; };
 		1FE48C3827BB508400719311 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1FE48C3A27BB508400719311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FE48C3D27BB508400719311 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FE48C4427BB50CE00719311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1FE48C4627BB516C00719311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1FE48C4827BB51E300719311 /* DistiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistiniViewController.swift; sourceTree = "<group>"; };
+		1FE48C4A27BB666000719311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F75D93527BBF63F008B9D39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F75D93327BBA2B1008B9D39 /* Story.swift */,
+				1F75D93627BBF650008B9D39 /* StoryBrain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1FE48C2A27BB508400719311 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +71,13 @@
 		1FE48C3527BB508400719311 /* Destini */ = {
 			isa = PBXGroup;
 			children = (
+				1FE48C4A27BB666000719311 /* Info.plist */,
+				1FE48C4427BB50CE00719311 /* AppDelegate.swift */,
+				1FE48C4627BB516C00719311 /* SceneDelegate.swift */,
+				1FE48C4827BB51E300719311 /* DistiniViewController.swift */,
 				1FE48C3627BB508400719311 /* DestiniApp.swift */,
 				1FE48C3827BB508400719311 /* ContentView.swift */,
+				1F75D93527BBF63F008B9D39 /* Model */,
 				1FE48C3A27BB508400719311 /* Assets.xcassets */,
 				1FE48C3C27BB508400719311 /* Preview Content */,
 			);
@@ -137,8 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE48C4527BB50CE00719311 /* AppDelegate.swift in Sources */,
+				1FE48C4927BB51E300719311 /* DistiniViewController.swift in Sources */,
 				1FE48C3927BB508400719311 /* ContentView.swift in Sources */,
 				1FE48C3727BB508400719311 /* DestiniApp.swift in Sources */,
+				1FE48C4727BB516C00719311 /* SceneDelegate.swift in Sources */,
+				1F75D93727BBF650008B9D39 /* StoryBrain.swift in Sources */,
+				1F75D93427BBA2B1008B9D39 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,11 +302,13 @@
 				DEVELOPMENT_TEAM = 723HTEFHBA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Destini/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,11 +333,13 @@
 				DEVELOPMENT_TEAM = 723HTEFHBA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Destini/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
