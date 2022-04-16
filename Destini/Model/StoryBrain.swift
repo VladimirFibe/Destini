@@ -29,10 +29,10 @@ struct StoryBrain {
           choices: ["The End": 0]),
     // 5
     Story(title: "You bond with the murderer while crooning verses of \"Can you feel the love tonight\". He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: \"Try the pier.\"",
-          choices: ["The End": 0]),
+          choices: ["The End": 6]),
     // 6
     Story(title: "He nods slowly, unphased by the question.",
-          choices: [:]),
+          choices: ["The End": 0]),
     
   ]
   

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DistiniViewController: UIViewController {
   var storyBrain = StoryBrain()
@@ -33,37 +34,36 @@ class DistiniViewController: UIViewController {
       $0.backgroundColor = .purple
       $0.titleLabel?.lineBreakMode = .byWordWrapping
       $0.titleLabel?.textAlignment = .center
+      $0.titleEdgeInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
       $0.translatesAutoresizingMaskIntoConstraints = false
+      $0.heightAnchor.constraint(equalToConstant: 90).isActive = true
       $0.addTarget(nil, action: #selector(choiceMade), for: .touchUpInside)
     }
     buttons[0].backgroundColor = .red
 
     let margins = view.layoutMarginsGuide
-    let stack = UIStackView(arrangedSubviews: buttons)
+    let buttonStack = UIStackView(arrangedSubviews: buttons)
+    buttonStack.axis = .vertical
+    buttonStack.spacing = 10
+    let stack = UIStackView(arrangedSubviews: [storyLabel, buttonStack])
     stack.axis = .vertical
-    stack.distribution = .fillEqually
-    stack.spacing = 10
+    stack.spacing = 20
     stack.translatesAutoresizingMaskIntoConstraints = false
     
     view.addSubview(backgroundView)
     view.addSubview(stack)
-    view.addSubview(storyLabel)
     
     NSLayoutConstraint.activate([
       backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
       backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1),
+      backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-      stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20),
+
+      stack.topAnchor.constraint(equalTo: margins.topAnchor, constant: 10),
       stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
       stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-      stack.heightAnchor.constraint(equalToConstant: 190),
       
-      storyLabel.topAnchor.constraint(equalTo: margins.topAnchor),
-      storyLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-      storyLabel.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-      storyLabel.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: -20)
     ])
   }
   override func viewDidLoad() {
@@ -91,3 +91,24 @@ class DistiniViewController: UIViewController {
     }
   }
 }
+
+struct SwiftUIController: UIViewControllerRepresentable {
+  typealias UIViewControllerType = DistiniViewController
+  
+  func makeUIViewController(context: Context) -> UIViewControllerType {
+    let viewController = UIViewControllerType()
+    return viewController
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    
+  }
+}
+
+struct SwiftUIController_Previews: PreviewProvider {
+  static var previews: some View {
+    SwiftUIController()
+      .edgesIgnoringSafeArea(.all)
+  }
+}
+
