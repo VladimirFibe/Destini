@@ -65,14 +65,14 @@ extension DestiniView {
     
     func configureButtons() {
         
-        for i in 0..<2 {
+        for i in 0..<3 {
             var config = UIButton.Configuration.plain()
             config.buttonSize = .medium
             config.cornerStyle = .large
             config.titleAlignment = .center
             config.titlePadding = 4.0
-            config.background.backgroundColor = [UIColor.systemPurple, UIColor.systemPink][i]
-            config.title = ["Take a left.", "Take a right."][i]
+            config.background.backgroundColor = [UIColor.systemPurple, UIColor.systemPink, UIColor.systemBlue][i]
+            config.title = "Button"
             config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
               var outgoing = incoming
                 outgoing.font = UIFont.preferredFont(forTextStyle: .body)
@@ -81,7 +81,7 @@ extension DestiniView {
             config.baseForegroundColor = .white
             let button = UIButton(type: .system)
             button.tag = i
-            button.heightAnchor.constraint(equalToConstant: 90).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 60).isActive = true
             button.configuration = config
             button.addAction(UIAction { action in
                 self.answerButtonPressed?(i)

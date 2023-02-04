@@ -1,95 +1,70 @@
-//
-//  DistiniViewController.swift
-//  Destini
-//
-//  Created by Vladimir Fibe on 15.02.2022.
-//
-
 import UIKit
 import SwiftUI
+import AVFoundation
 
-class DistiniViewController: UIViewController {
-  var storyBrain = StoryBrain()
-  let backgroundView: UIImageView = {
-    $0.contentMode = .scaleAspectFill
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    return $0
-  }(UIImageView(image: UIImage(named: "background")))
-  
-  let storyLabel: UILabel = {
-    $0.text = "Story Text"
-    $0.font = .systemFont(ofSize: 25)
-    $0.adjustsFontSizeToFitWidth = true
-    $0.numberOfLines = 0
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    return $0
-  }(UILabel())
-  
-  let buttons = [UIButton(type: .system), UIButton(type: .system)]
-  func setupUI() {
-    buttons.forEach {
-      $0.titleLabel?.font = .systemFont(ofSize: 23)
-      $0.titleLabel?.adjustsFontSizeToFitWidth = true
-      $0.layer.cornerRadius = 16
-      $0.backgroundColor = .purple
-      $0.titleLabel?.lineBreakMode = .byWordWrapping
-      $0.titleLabel?.textAlignment = .center
-      $0.titleEdgeInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
-      $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.heightAnchor.constraint(equalToConstant: 90).isActive = true
-      $0.addTarget(nil, action: #selector(choiceMade), for: .touchUpInside)
+final class DistiniViewController: BaseController {
+    var player: AVAudioPlayer!
+    var storyBrain = StoryBrain() {
+        didSet {
+            updateUI()
+        }
     }
-    buttons[0].backgroundColor = .red
-
-    let margins = view.layoutMarginsGuide
-    let buttonStack = UIStackView(arrangedSubviews: buttons)
-    buttonStack.axis = .vertical
-    buttonStack.spacing = 10
-    let stack = UIStackView(arrangedSubviews: [storyLabel, buttonStack])
-    stack.axis = .vertical
-    stack.spacing = 20
-    stack.translatesAutoresizingMaskIntoConstraints = false
+    let destiniView = DestiniView()
     
-    view.addSubview(backgroundView)
-    view.addSubview(stack)
+    lazy var storyLabel = destiniView.storyLabel
+    lazy var choiceButton = destiniView.choiceButtons
     
-    NSLayoutConstraint.activate([
-      backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-      backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-
-      stack.topAnchor.constraint(equalTo: margins.topAnchor, constant: 10),
-      stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-      stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-      
-    ])
-  }
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setupUI()
-    updateUI()
-  }
-  @objc func choiceMade(_ sender: UIButton) {
-    if let title = sender.currentTitle {
-      storyBrain.nextPage(title: title)
+    let backgroundView = UIImageView(image: UIImage(named: "background")).then {
+        $0.contentMode = .scaleToFill
     }
-    updateUI()
-  }
-  func updateUI() {
-    storyLabel.text = storyBrain.getTitle()
-    let choices = storyBrain.getChoices()
-    for i in 0..<buttons.count {
-      if i < choices.count {
-        buttons[i].setTitle(choices[i], for: .normal)
-        buttons[i].isHidden = false
-      } else {
-        buttons[i].setTitle("", for: .normal)
-        buttons[i].isHidden = true
-      }
+    
+    func answerButtonPressed(_ index: Int) {
+        print(index, String(format: "%02d", index))
+        storyBrain.nextStory(index)
     }
-  }
+    
+    func updateUI() {
+        let title = String(format: "%02d", storyBrain.currentIndex + 1)
+        storyLabel.text = storyBrain.currentTitle
+        destiniView.configure(with: storyBrain.currentChoices)
+        playSound(title)
+    }
+    
+    func playSound(_ title: String) {
+        guard let url = Bundle.main.url(forResource: title, withExtension: "mp3") else { return }
+        if let player = player { player.stop() }
+        player = try! AVAudioPlayer(contentsOf: url)
+        player.play()
+    }
+}
+
+extension DistiniViewController {
+    override func setupViews() {
+        super.setupViews()
+        view.addView(backgroundView)
+        view.addView(destiniView)
+    }
+    
+    override func layoutViews() {
+        super.layoutViews()
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            destiniView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            destiniView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            destiniView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            destiniView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    override func configureAppearance() {
+        super.configureAppearance()
+        destiniView.answerButtonPressed = answerButtonPressed
+        updateUI()
+    }
 }
 
 struct SwiftUIController: UIViewControllerRepresentable {
