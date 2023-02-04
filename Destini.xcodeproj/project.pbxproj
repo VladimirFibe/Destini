@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02BC7D94298D6E1F00C8DD3F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02BC7D90298D6E1E00C8DD3F /* sample.mp3 */; };
+		027D3C03298E12A100E11091 /* 01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 027D3C02298E12A100E11091 /* 01.mp3 */; };
 		02BC7D96298D6E1F00C8DD3F /* DestiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC7D92298D6E1F00C8DD3F /* DestiniView.swift */; };
 		02BC7D99298D6E4600C8DD3F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC7D97298D6E4600C8DD3F /* BaseView.swift */; };
 		02BC7D9A298D6E4600C8DD3F /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC7D98298D6E4600C8DD3F /* BaseController.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02BC7D90298D6E1E00C8DD3F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		027D3C02298E12A100E11091 /* 01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01.mp3; sourceTree = "<group>"; };
 		02BC7D92298D6E1F00C8DD3F /* DestiniView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestiniView.swift; sourceTree = "<group>"; };
 		02BC7D97298D6E4600C8DD3F /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		02BC7D98298D6E4600C8DD3F /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
@@ -53,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		027D3C01298E128E00E11091 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				027D3C02298E12A100E11091 /* 01.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		1F75D93527BBF63F008B9D39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +89,7 @@
 		1FE48C3527BB508400719311 /* Destini */ = {
 			isa = PBXGroup;
 			children = (
+				027D3C01298E128E00E11091 /* Sounds */,
 				1FE48C4A27BB666000719311 /* Info.plist */,
 				1FE48C4427BB50CE00719311 /* AppDelegate.swift */,
 				1FE48C4627BB516C00719311 /* SceneDelegate.swift */,
@@ -88,7 +97,6 @@
 				02BC7D97298D6E4600C8DD3F /* BaseView.swift */,
 				1FE48C4827BB51E300719311 /* DistiniViewController.swift */,
 				02BC7D92298D6E1F00C8DD3F /* DestiniView.swift */,
-				02BC7D90298D6E1E00C8DD3F /* sample.mp3 */,
 				02BC7D9B298D6E9200C8DD3F /* Then.swift */,
 				02BC7D9C298D6E9200C8DD3F /* UIView+Extension.swift */,
 				02BC7D9F298D715000C8DD3F /* Story.json */,
@@ -166,8 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FE48C3E27BB508400719311 /* Preview Assets.xcassets in Resources */,
+				027D3C03298E12A100E11091 /* 01.mp3 in Resources */,
 				1FE48C3B27BB508400719311 /* Assets.xcassets in Resources */,
-				02BC7D94298D6E1F00C8DD3F /* sample.mp3 in Resources */,
 				02BC7DA0298D715000C8DD3F /* Story.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
